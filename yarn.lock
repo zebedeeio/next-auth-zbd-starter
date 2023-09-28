@@ -181,10 +181,10 @@ nanoid@^3.3.4:
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.3.6.tgz#443380c856d6e9f9824267d960b4236ad583ea4c"
   integrity sha512-BGcqMMJuToF7i1rt+2PWSNVnWIkGCU78jBG3RxO/bZlnZPK2Cmi2QaffxGO/2RvWi9sL+FAiRiXMgsyxQ1DIDA==
 
-next-auth-zbd-provider@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/next-auth-zbd-provider/-/next-auth-zbd-provider-0.3.1.tgz#cdd96e63229a378bcbf12d00729a44ebff59f4e5"
-  integrity sha512-HaCFxnpLZmUUtTj9SkbCkUIsAtAhP8gueRx4CI+PusFI+6a7125m+sznVOD7PAFbbsD25P0rRaiuVwnVQutR9g==
+next-auth-zbd-provider@^0.3.6:
+  version "0.3.6"
+  resolved "https://registry.yarnpkg.com/next-auth-zbd-provider/-/next-auth-zbd-provider-0.3.6.tgz#19e57fac8eea46e7bb14821e67c18905987b3bdc"
+  integrity sha512-T9r/dbfU7UJ0nc92aIGnJ+KHC+0s5ujSxxkSLAHwf2O5cFCuUfvhNQ0DtiXBMug3MPEPNiHFRmcoHZQ+fcKi+A==
   dependencies:
     node-fetch "^3.3.2"
 
