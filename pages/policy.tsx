@@ -5,7 +5,7 @@ export default function PolicyPage() {
     <Layout>
       <p>
         This is an example site to demonstrate how to use{" "}
-        <a href="https://next-auth.js.org">NextAuth.js</a> for authentication.
+        <a href="https://next-auth.js.org">NextAuth.js</a> for authentication with <a href="https://zbd.dev">ZBD OAuth2 API</a>.
       </p>
       <h2>Terms of Service</h2>
       <p>
