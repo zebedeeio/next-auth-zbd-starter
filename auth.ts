@@ -20,18 +20,56 @@ export const config = {
       type: "oauth",
       clientId: process.env.AUTH_ZBD_ID,
       clientSecret: process.env.AUTH_ZBD_SECRET,
-      authorization: { url: 'https://api.zebedee.io/v1/oauth2/authorize', params: { scope: "" } },
+      authorization: { url: 'https://api.zebedee.io/v1/oauth2/authorize', params: { scope: "user" } },
       token: "https://api.zebedee.io/v1/oauth2/token",
-      userinfo: "https://api.zebedee.io/v1/oauth2/user",
-      checks: ["pkce"],
-      profile({ response: { profile } }) {
+      userinfo: {
+        async request(context) {
+          const emptyUserProfile = {
+            "id": null,
+            "email": null,
+            "gamertag": null,
+            "image": null,
+            "isVerified": null,
+            "lightningAddress": null,
+            "publicBio": null,
+            "publicStaticCharge": null,
+            "social": {}
+          }
+          const headers: { apikey: string; usertoken?: string; } = { apikey: process.env.AUTH_ZBD_LIVE_KEY }
+          if (context.tokens.access_token) {
+            headers['usertoken'] = context.tokens.access_token
+          }
+          if (!headers['usertoken']) {
+            console.log('No access_token was found from the response of authorization request.')
+            return emptyUserProfile
+          }
+          const t = await fetch('https://api.zebedee.io/v1/oauth2/user', {
+            headers
+          })
+          if (t.ok) {
+            const p = await t.json()
+            return p.data
+          }
+          else {
+            console.log('Response from https://api.zebedee.io/v1/oauth2/user resulted in the following:')
+            console.log('Status Code:', t.status)
+            console.log('Response Text:', t.statusText)
+            return emptyUserProfile
+          }
+        },
+      },
+      checks: ["pkce", "state"],
+      profile(profile) {
         return {
-          id: profile.id,
-          name: `${profile.firstName} ${profile.lastName}`,
-          email: profile.contact.email,
-          image: profile.photo
-            ? `${profile.photo.prefix}original${profile.photo.suffix}`
-            : null,
+          "id": profile['id'],
+          "email": profile['email'],
+          "gamertag": profile['gamertag'],
+          "image": profile['image'],
+          "isVerified": profile['isVerified'],
+          "lightningAddress": profile['lightningAddress'],
+          "publicBio": profile['publicBio'],
+          "publicStaticCharge": profile['publicStaticCharge'],
+          "social": profile['social']
         }
       },
       style: {
@@ -66,6 +104,7 @@ declare global {
 
       AUTH_ZBD_ID: string
       AUTH_ZBD_SECRET: string
+      AUTH_ZBD_LIVE_KEY: string
     }
   }
 }
