@@ -44,42 +44,50 @@ export const config = {
             "publicStaticCharge": null,
             "social": {}
           }
-          const headers: { apikey: string; usertoken?: string; } = { apikey: process.env.AUTH_ZBD_LIVE_KEY }
+          const headers: { apikey: string; usertoken?: string; } = {
+            apikey: process.env.AUTH_ZBD_LIVE_KEY,
+          }
+
           if (context.tokens.access_token) {
             headers['usertoken'] = context.tokens.access_token
           }
+
           if (!headers['usertoken']) {
             console.log('No access_token was found from the response of authorization request.')
             return { ...emptyUserProfile, ...emptyUserWallet }
           }
+
           const t = await fetch('https://api.zebedee.io/v1/oauth2/user', {
-            headers
-          })
+            headers,
+          });
+
           const d = await fetch('https://api.zebedee.io/v1/oauth2/wallet', {
-            headers
-          })
-          let all = {}
+            headers,
+          });
+
+          let all = {};
+
           if (t.ok) {
-            const p = await t.json()
-            all = { ...p.data }
-          }
-          else {
+            const p = await t.json();
+            all = { ...p.data };
+          } else {
             console.log('Response from https://api.zebedee.io/v1/oauth2/user resulted in the following:')
             console.log('Status Code:', t.status)
             console.log('Response Text:', t.statusText)
             all = { ...emptyUserProfile }
-          }
+          };
+
           if (d.ok) {
-            const p = await d.json()
-            all = { ...all, ...p.data }
-          }
-          else {
+            const p = await d.json();
+            all = { ...all, ...p.data };
+          } else {
             console.log('Response from https://api.zebedee.io/v1/oauth2/wallet resulted in the following:')
             console.log('Status Code:', t.status)
             console.log('Response Text:', t.statusText)
-            all = { ...all, ...emptyUserWallet }
-          }
-          return all
+            all = { ...all, ...emptyUserWallet };
+          };
+
+          return all;
         },
       },
       checks: ["pkce", "state"],
@@ -113,7 +121,7 @@ export const config = {
   callbacks: {
     async jwt({ token }) {
       token.userRole = "admin"
-      return token
+      return token;
     },
   },
 } satisfies NextAuthConfig
