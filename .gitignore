@@ -17,4 +17,6 @@ next-env.d.ts
 
 .next
 .vercel
+
+.env
 .env*.local
