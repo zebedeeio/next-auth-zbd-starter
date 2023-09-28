@@ -1,6 +1,6 @@
-import type { GetServerSidePropsContext, NextApiRequest, NextApiResponse } from "next"
-import type { NextAuthOptions as NextAuthConfig } from "next-auth"
-import { getServerSession } from "next-auth"
+import type { GetServerSidePropsContext, NextApiRequest, NextApiResponse } from "next";
+import type { NextAuthOptions as NextAuthConfig } from "next-auth";
+import { getServerSession } from "next-auth";
 
 // Read more at: https://next-auth.js.org/getting-started/typescript#module-augmentation
 declare module "next-auth/jwt" {
@@ -12,7 +12,7 @@ declare module "next-auth/jwt" {
 
 export const config = {
   secret: process.env.NEXTAUTH_SECRET,
-  debug: true,
+  // debug: true,
   providers: [
     {
       id: "zbd",
@@ -20,7 +20,7 @@ export const config = {
       type: "oauth",
       clientId: process.env.AUTH_ZBD_ID,
       clientSecret: process.env.AUTH_ZBD_SECRET,
-      authorization: { url: 'https://api.zebedee.io/v1/oauth2/authorize', params: { scope: "user wallet" } },
+      authorization: { url: 'https://api.zebedee.io/v1/oauth2/authorize', params: { scope: "user,wallet" } },
       token: "https://api.zebedee.io/v1/oauth2/token",
       userinfo: {
         async request(context) {
@@ -109,8 +109,8 @@ export const config = {
         }
       },
       style: {
-        logo: "/foursquare.svg",
-        logoDark: "/foursquare-dark.svg",
+        logo: "https://cdn.zebedee.io/zbdgg/social/zbd-pfp-default.png",
+        logoDark: "https://cdn.zebedee.io/zbdgg/social/zbd-pfp-default.png",
         bg: "#fff",
         text: "#000",
         bgDark: "#000",

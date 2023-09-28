@@ -1,25 +1,21 @@
 {
-  "private": true,
-  "description": "An example project for NextAuth.js with Next.js",
-  "repository": "https://github.com/nextauthjs/next-auth-example.git",
+  "name": "next-auth-zbd-starter",
+  "description": "An example project for ZBD OAuth2 on NextAuth.js with Next.js",
+  "repository": "https://github.com/zebedeeio/next-auth-zbd-starter.git",
   "bugs": {
-    "url": "https://github.com/nextauthjs/next-auth/issues"
+    "url": "https://github.com/zebedeeio/next-auth-zbd-starter/issues"
   },
-  "homepage": "https://next-auth-example.vercel.app",
+  "homepage": "https://nextauth.zbd.dev",
   "scripts": {
     "dev": "next",
     "build": "next build",
     "start": "next start"
   },
-  "author": "Iain Collins <me@iaincollins.com>",
-  "contributors": [
-    "Balázs Orbán <info@balazsorban.com>",
-    "Nico Domino <yo@ndo.dev>",
-    "Lluis Agusti <hi@llu.lu>"
-  ],
+  "author": "Andre Neves <andre@zebedee.io>",
   "dependencies": {
     "next": "latest",
     "next-auth": "latest",
+    "next-auth-zbd-provider": "^0.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
