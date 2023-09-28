@@ -20,10 +20,19 @@ export const config = {
       type: "oauth",
       clientId: process.env.AUTH_ZBD_ID,
       clientSecret: process.env.AUTH_ZBD_SECRET,
-      authorization: { url: 'https://api.zebedee.io/v1/oauth2/authorize', params: { scope: "user" } },
+      authorization: { url: 'https://api.zebedee.io/v1/oauth2/authorize', params: { scope: "user wallet" } },
       token: "https://api.zebedee.io/v1/oauth2/token",
       userinfo: {
         async request(context) {
+          const emptyUserWallet = {
+            "balance": null,
+            "remainingAmountLimits": {
+              "daily": null,
+              "maxCredit": null,
+              "monthly": null,
+              "weekly": null,
+            }
+          }
           const emptyUserProfile = {
             "id": null,
             "email": null,
@@ -41,26 +50,42 @@ export const config = {
           }
           if (!headers['usertoken']) {
             console.log('No access_token was found from the response of authorization request.')
-            return emptyUserProfile
+            return { ...emptyUserProfile, ...emptyUserWallet }
           }
           const t = await fetch('https://api.zebedee.io/v1/oauth2/user', {
             headers
           })
+          const d = await fetch('https://api.zebedee.io/v1/oauth2/wallet', {
+            headers
+          })
+          let all = {}
           if (t.ok) {
             const p = await t.json()
-            return p.data
+            all = { ...p.data }
           }
           else {
             console.log('Response from https://api.zebedee.io/v1/oauth2/user resulted in the following:')
             console.log('Status Code:', t.status)
             console.log('Response Text:', t.statusText)
-            return emptyUserProfile
+            all = { ...emptyUserProfile }
           }
+          if (d.ok) {
+            const p = await d.json()
+            all = { ...all, ...p.data }
+          }
+          else {
+            console.log('Response from https://api.zebedee.io/v1/oauth2/wallet resulted in the following:')
+            console.log('Status Code:', t.status)
+            console.log('Response Text:', t.statusText)
+            all = { ...all, ...emptyUserWallet }
+          }
+          return all
         },
       },
       checks: ["pkce", "state"],
       profile(profile) {
         return {
+          // profile properties
           "id": profile['id'],
           "email": profile['email'],
           "gamertag": profile['gamertag'],
@@ -69,7 +94,10 @@ export const config = {
           "lightningAddress": profile['lightningAddress'],
           "publicBio": profile['publicBio'],
           "publicStaticCharge": profile['publicStaticCharge'],
-          "social": profile['social']
+          "social": profile['social'],
+          // wallet properties
+          "balance": profile['balance'],
+          "remainingAmountLimits": profile['remainingAmountLimits'],
         }
       },
       style: {
