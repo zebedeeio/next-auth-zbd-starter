@@ -4,6 +4,10 @@
 
 This is a repo containing the code for the ZBD + NextAuth.js integration for ZBD OAuth2 flows.
 
+## Full Guide
+
+To read full guide and more information about ZBD OAuth2 APIs, check the [zbd.dev documentation here](https://zbd.dev/docs/zbd-login/integrations/next).
+
 ## Installation
 
 ```bash
