@@ -1,7 +1,7 @@
 import type { GetServerSidePropsContext, NextApiRequest, NextApiResponse } from "next";
 import type { NextAuthOptions as NextAuthConfig } from "next-auth";
 import { getServerSession } from "next-auth";
-import { getZBDProvider } from "next-auth-zbd-provider";
+import { getZBDProvider } from "next-auth-zbd-provideR";
 
 // Read more at: https://next-auth.js.org/getting-started/typescript#module-augmentation
 declare module "next-auth/jwt" {
@@ -21,7 +21,6 @@ const zbdConfig = getZBDProvider({
 export const config = {
   secret: process.env.NEXTAUTH_SECRET,
   debug: true,
-  // @ts-ignore
   providers: [zbdConfig],
   callbacks: {
     async jwt({ token }) {
