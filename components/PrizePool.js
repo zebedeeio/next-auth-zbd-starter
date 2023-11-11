@@ -12,7 +12,6 @@ const PrizePool = ({data}) => {
             suspendisse.
           </p> */}
         </div>
-        <br />
         <ul role="list" className="grid gap-x-8 gap-y-12 sm:grid-cols-3 sm:gap-y-12 xl:col-span-3">
           {data.map((prize) => (
             <li key={prize[0]}>
