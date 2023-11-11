@@ -1,0 +1,10 @@
+{
+    "headerText" : "What's in It for You?",
+    "descriptionText" : "Our hackathons are a playground for visionaries, developers, and Lightning Network enthusiasts to come together and push the boundaries of what's possible with Bitcoin technology.",
+    "data": [
+        ["Status", "Prizes and recognition for the most groundbreaking projects utilizing the Lightning Network."],
+        ["Growth", "Valuable feedback from experienced judges and mentors."],
+        ["Networking", "Opportunities to connect with leading industry professionals in the Lightning Network space."],
+        ["Glory", "A chance to make a real impact on the future of Bitcoin's ecosystem."]
+    ]
+}

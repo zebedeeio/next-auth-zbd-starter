@@ -13,6 +13,8 @@
   },
   "author": "Andre Neves <andre@zebedee.io>",
   "dependencies": {
+    "@tailwindcss/forms": "^0.5.7",
+    "lucide-react": "^0.292.0",
     "next": "latest",
     "next-auth": "latest",
     "next-auth-zbd-provider": "^0.3.8",
@@ -22,6 +24,9 @@
   "devDependencies": {
     "@types/node": "^18.16.2",
     "@types/react": "^18.2.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
     "typescript": "5.2.2"
   }
 }

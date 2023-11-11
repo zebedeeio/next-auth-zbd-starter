@@ -1,13 +1,36 @@
-import Layout from "../components/layout"
+import Layout from "../components/layout";
+import HeroModule from "@/components/HeroModule"
+import BenefitsModule from "@/components/BenefitsModule"
+import UpcomingHackathons from "@/components/UpcomingHackathons"
+
+import Sponsors from "@/components/Sponsors"
+import CallToAction from "@/components/CallToAction"
+import developerBenefits from "@/data/content/developerBenefits.json"
+
+
+import homePage from "@/data/content/homePageCta.json"
+import hackathons from "@/data/content/hackathons.json"
+import sponsors from "@/data/content/sponsors.json"
+
+
+
+
+
+
 
 export default function IndexPage() {
   return (
     <Layout>
-      <h1>NextAuth.js + ZBD OAuth2 Example</h1>
-      <p>
-        This is an example site to demonstrate how to use{" "}
-        <a href="https://next-auth.js.org">NextAuth.js</a> for authentication with <a href="https://zbd.dev">ZBD OAuth2 API</a>.
-      </p>
+        <HeroModule />
+
+        <BenefitsModule data={developerBenefits} />
+
+        <UpcomingHackathons data={hackathons} />
+
+        <Sponsors data={sponsors} />
+
+        <CallToAction data={homePage} />
+
     </Layout>
-  )
+  );
 }

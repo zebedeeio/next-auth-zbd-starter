@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    
     "target": "es5",
     "lib": [
       "dom",
@@ -19,6 +20,12 @@
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
+    "paths": {
+      "@/styles/*": ["styles/*"],
+      "@/components/*": ["components/*"],
+      "@/data/*": ["data/*"]
+
+    },
     "plugins": [
       {
         "name": "next"
@@ -31,7 +38,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "components/*", "pages/hackathons/bitblockboom/index.js" ],
   "exclude": [
     "node_modules"
   ]
