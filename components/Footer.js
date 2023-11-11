@@ -5,7 +5,7 @@ import { Youtube } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="flex flex-row justify-between p-4 bg-black text-white text-lg">
+    <footer className="flex flex-row bottom-0 justify-between p-4 bg-black text-white text-lg">
       <div >&copy; ZBD 2023.</div>
       <div >Made with &#9829; by <a className="hover:text-lime-400" href="https://x.com/5antoshernandez">santos</a>
       </div>
