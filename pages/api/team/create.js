@@ -1,19 +1,33 @@
 import prisma from "@/lib/db";
+import { config } from "@/lib/auth";
+import { getServerSession } from "next-auth";
 
 export default async function handle(req, res) {
-  const token = await getToken({ req });
-  const { name, description, teamMembers, teamAvatar, creatorId } = req.body;
+  try {
+    const session = await getServerSession(req, res, config);
+    const { teamName, teamDescription, teamAvatarURL, teamMembers } = req.body;
 
-  const result = await prisma.team.create({
-    data: {
-      name: name,
-      description: description,
+    if (!session) {
+      return res.status(401).json({ error: "Unauthorized" });
+    }
 
-      teamMembers: teamMembers,
-      teamAvatar: teamAvatar,
+    const user = await prisma.user.findMany({
+      where: {
+        email: session.user.email,
+      },
+    });
 
-      creatorId: creatorId,
-    },
-  });
-  res.json(result);
+    const result = await prisma.team.create({
+      data: {
+        name: teamName,
+        description: teamDescription,
+        teamAvatar: teamAvatarURL,
+        teamMembers: teamMembers,
+        creatorId: user[0].id,
+      },
+    });
+    res.json(result);
+  } catch (error) {
+    console.log(error);
+  }
 }

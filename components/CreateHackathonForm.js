@@ -5,7 +5,7 @@ import PageHeader from "@/components/PageHeader";
 import { ArrowRight } from "lucide-react";
 import ButtonPrimary from "@/components/ButtonPrimary";
 
-const CreateHackathonForm = ({ userData }) => {
+const CreateHackathonForm = () => {
   const router = useRouter();
 
   const [title, setTitle] = useState("");

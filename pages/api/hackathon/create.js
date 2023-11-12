@@ -5,7 +5,6 @@ import { getServerSession } from "next-auth";
 export default async function handle(req, res) {
   try {
     const session = await getServerSession(req, res, config);
-    console.log("Session from Create Hackathon API: ", session);
 
     if (!session) {
       return res.status(401).json({ error: "Unauthorized" });
@@ -16,8 +15,6 @@ export default async function handle(req, res) {
         email: session.user.email,
       },
     });
-
-    console.log("User retrieved from DB: ", user);
 
     const {
       title,

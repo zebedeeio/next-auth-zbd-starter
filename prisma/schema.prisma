@@ -81,8 +81,6 @@ model Team {
 
   creator   User   @relation(fields: [creatorId], references: [id])
   creatorId String
-
-  @@unique([creatorId, name])
 }
 
 model Hackathon {
