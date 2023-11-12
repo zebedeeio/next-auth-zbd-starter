@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
-
 import { useRouter } from "next/navigation";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-const RegisterTeamForm = () => {
+const RegisterTeamForm = ({ hackathonId }) => {
   const router = useRouter();
 
   const [team, setTeam] = useState("");
   const [teams, setTeams] = useState([]);
+  const [loadingTeams, setLoadingTeams] = useState(true);
 
+  // Get Teams
   useEffect(() => {
     const fetchTeams = async () => {
       try {
@@ -26,26 +27,39 @@ const RegisterTeamForm = () => {
         }
       } catch (error) {
         console.error("Error fetching teams:", error);
+      } finally {
+        setLoadingTeams(false);
       }
     };
 
     fetchTeams(); // Call the fetchTeams function
   }, []); // Empty dependency array to ensure the effect runs only once on mount
 
+  // Log team changes
+  useEffect(() => {
+    console.log("Selected Team ID:", team);
+  }, [team]); // Run this effect whenever "team" changes
+
   const create = async (e) => {
     e.preventDefault();
     try {
+      if (!team.trim()) {
+        console.error("Team cannot be empty.");
+        return;
+      }
+
       const body = {
         team,
       };
 
-      await fetch(`/api/hackathon/${hackathonId}/register`, {
+      const data = await fetch(`/api/hackathons/${hackathonId}/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
+      console.log(data);
 
-      router.push("/");
+      router.push("/success");
     } catch (error) {
       console.error(error);
     }
@@ -68,21 +82,28 @@ const RegisterTeamForm = () => {
             </Link>
           </div>
           <div className="mt-2 mb-4">
-            <select
-              id="team"
-              name="team"
-              autoComplete="team"
-              className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
-              required
-              onChange={(e) => setTeam(e.target.value)}
-            >
-              <option>Select</option>
-              {teams.map((team) => (
-                <option key={team.id} value={team.id}>
-                  {team.name}
-                </option>
-              ))}
-            </select>
+            {loadingTeams ? (
+              <p>Loading teams...</p>
+            ) : (
+              <select
+                id="team"
+                name="team"
+                autoComplete="team"
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                required
+                value={team}
+                onChange={(e) => setTeam(e.target.value)}
+                onClick={(e) => setTeam(e.target.value)}
+              >
+                <option>Select team</option>
+                {teams.length === 0 && <option>No teams available</option>}
+                {teams.map((team) => (
+                  <option key={team.id} value={team.id}>
+                    {team.name}
+                  </option>
+                ))}
+              </select>
+            )}
           </div>
           <button className="w-15 md:w-30 bg-lime-400 hover:bg-lime-600 text-white border-solid border-2 border-black font-bold py-2 px-6 rounded-full">
             <div className="flex justify-between align-middle">

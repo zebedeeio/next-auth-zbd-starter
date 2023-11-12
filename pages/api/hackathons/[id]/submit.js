@@ -9,7 +9,6 @@ export default async function handle(req, res) {
     pitchLink,
     projectResourceLink,
     comments,
-    hackathonId,
     teamId,
   } = req.body;
 
@@ -23,7 +22,7 @@ export default async function handle(req, res) {
       projectResourceLink: projectResourceLink,
 
       comments: comments,
-      hackathonId: hackathonId,
+      hackathonId: id,
       teamId: teamId,
     },
   });

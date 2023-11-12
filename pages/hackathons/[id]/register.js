@@ -2,8 +2,19 @@ import Layout from "@/components/layout";
 import PageHeader from "@/components/PageHeader";
 import RegisterTeamForm from "@/components/RegisterTeamForm";
 import ButtonPrimary from "@/components/ButtonPrimary";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 
 export default function HackathonRegistration() {
+  const router = useRouter();
+  const [id, setId] = useState("");
+
+  useEffect(() => {
+    if (router.isReady) {
+      setId(router.query.id);
+    }
+  }, [router.isReady]);
+
   return (
     <Layout>
       <div className="py-4 sm:py-12">
@@ -13,7 +24,7 @@ export default function HackathonRegistration() {
             headerText={"Confirm Registration for BBB Hackathon"}
             descriptionText={"Fill out the form to complete your registration."}
           />
-          <RegisterTeamForm />
+          <RegisterTeamForm hackathonId={id} />
         </div>
       </div>
     </Layout>

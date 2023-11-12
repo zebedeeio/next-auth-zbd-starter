@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Layout from "../../../components/layout";
 import PageHeader from "@/components/PageHeader";
 import SectionHeader from "@/components/SectionHeader";
@@ -9,13 +10,25 @@ import { Check } from "lucide-react";
 import PrizePool from "@/components/PrizePool";
 import ButtonPrimary from "@/components/ButtonPrimary";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
-export default function HackathonList() {
+export default function HackathonDetail() {
   const signedUp = false;
+  const router = useRouter();
+  const [id, setId] = useState("");
+
+  useEffect(() => {
+    if (router.isReady) {
+      setId(router.query.id);
+    }
+  }, [router.isReady]);
+
   return (
     <Layout>
       <div className="py-4 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          {/* TODO: */}
+          {/* Refactor Back Button to use router.back() */}
           <ButtonPrimary buttonText={"Back"} buttonLink={"/"} />
           <PageHeader
             headerText={"BBB Hackathon"}
@@ -27,12 +40,12 @@ export default function HackathonList() {
             {!signedUp ? (
               <ButtonPrimary
                 buttonText={"Register"}
-                buttonLink="/hackathons/bitblockboom/register"
+                buttonLink={`/hackathons/${id}/register`}
               />
             ) : (
               <ButtonPrimary
                 buttonText={"Submit Project"}
-                buttonLink="/hackathons/bitblockboom/submit"
+                buttonLink={`/hackathons/${id}/submit`}
               />
             )}
           </div>

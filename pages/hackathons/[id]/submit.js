@@ -10,7 +10,7 @@ import PrizePool from "@/components/PrizePool";
 import ButtonPrimary from "@/components/ButtonPrimary";
 import Image from "next/image";
 
-export default function HackathonList() {
+export default function SubmitProject() {
   return (
     <Layout>
       <div className="py-4 sm:py-12">

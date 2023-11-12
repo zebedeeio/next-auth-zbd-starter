@@ -9,21 +9,22 @@ export default async function handle(req, res) {
     if (!session) {
       return res.status(401).json({ error: "Unauthorized" });
     }
+
+    // hackathonId
     const {
-      query: { hackathonId },
+      query: { id },
     } = req;
 
-    const { teamId } = req.body;
+    // teamId
+    const { team } = req.body;
 
-    console.log(hackathonId);
-    console.log(teamId);
-
-    const result = await prisma.hackathonregistration.create({
+    const result = await prisma.hackathonRegistration.create({
       data: {
-        teamId: teamId,
-        hackathonId: hackathonId,
+        hackathonId: id,
+        teamId: team,
       },
     });
+    console.log(result);
     res.json(result);
   } catch (error) {
     console.log(error);

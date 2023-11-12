@@ -35,7 +35,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "components/*",
-    "pages/hackathons/[hackathonId]/index.js",
+    "pages/hackathons/[id]/index.js",
     "pages/hackathons/create.js"
   ],
   "exclude": ["node_modules"]
