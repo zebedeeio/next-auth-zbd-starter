@@ -13,7 +13,7 @@ import { getZBDProvider } from "next-auth-zbd-provider";
 declare module "next-auth/jwt" {
   interface JWT {
     /** The user's role. */
-    userRole?: "user";
+    userRole?: "admin";
   }
 }
 
@@ -31,7 +31,7 @@ export const config = {
   providers: [zbdConfig],
   callbacks: {
     async jwt({ token }) {
-      token.userRole = "user";
+      token.userRole = "admin";
       return token;
     },
   },
