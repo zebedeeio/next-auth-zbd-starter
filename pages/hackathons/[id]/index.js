@@ -13,15 +13,38 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 
 export default function HackathonDetail() {
-  const signedUp = false;
   const router = useRouter();
   const [id, setId] = useState("");
+  const [teams, setTeams] = useState([]);
+  const signedUp = teams.length > 0;
 
   useEffect(() => {
     if (router.isReady) {
       setId(router.query.id);
     }
   }, [router.isReady]);
+
+  useEffect(() => {
+    const fetchTeams = async () => {
+      try {
+        const teams = await fetch(`/api/team/`, {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        });
+
+        if (teams.ok) {
+          const teamsData = await teams.json();
+          setTeams(teamsData);
+        } else {
+          console.error("Error fetching teams:", teams.statusText);
+        }
+      } catch (error) {
+        console.error("Error fetching teams:", error);
+      }
+    };
+
+    fetchTeams(); // Call the fetchTeams function
+  }, []); // Empty dependency array to ensure the effect runs only once on mount
 
   return (
     <Layout>

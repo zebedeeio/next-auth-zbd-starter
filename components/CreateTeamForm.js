@@ -38,7 +38,7 @@ const CreateTeamForm = () => {
   };
 
   return (
-    <form method="POST" onSubmit={create}>
+    <form onSubmit={create}>
       <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
         <div className="sm:col-span-4">
           <label

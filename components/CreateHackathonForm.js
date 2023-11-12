@@ -50,7 +50,7 @@ const CreateHackathonForm = () => {
   };
 
   return (
-    <form method="POST" onSubmit={create}>
+    <form onSubmit={create}>
       <div className="py-4 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <ButtonPrimary buttonText={"Back"} buttonLink={"/"} />

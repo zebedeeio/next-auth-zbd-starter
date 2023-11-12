@@ -35,11 +35,6 @@ const RegisterTeamForm = ({ hackathonId }) => {
     fetchTeams(); // Call the fetchTeams function
   }, []); // Empty dependency array to ensure the effect runs only once on mount
 
-  // Log team changes
-  useEffect(() => {
-    console.log("Selected Team ID:", team);
-  }, [team]); // Run this effect whenever "team" changes
-
   const create = async (e) => {
     e.preventDefault();
     try {
@@ -66,7 +61,7 @@ const RegisterTeamForm = ({ hackathonId }) => {
   };
 
   return (
-    <form method="POST" onSubmit={create}>
+    <form onSubmit={create}>
       <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
         <div className="sm:col-span-3">
           <label

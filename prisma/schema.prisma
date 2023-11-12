@@ -119,6 +119,13 @@ model HackathonRegistration {
   team        Team      @relation(fields: [teamId], references: [id])
   teamId      String
 
+  // TODO:
+  // Add creatorId to make it easier to find registrations.
+  // creator   User   @relation(fields: [creatorId], references: [id])
+  // creatorId String
+
+  // @@unique([creatorId, teamId, hackathonId])
+
   @@unique([teamId, hackathonId])
 }
 
@@ -140,7 +147,7 @@ model Project {
   team   Team   @relation(fields: [teamId], references: [id])
   teamId String
 
-  @@unique([teamId, name])
+  @@unique([teamId, hackathonId])
 }
 
 enum Role {
