@@ -1,18 +1,35 @@
+import React, { useEffect, useState } from "react";
+
 import Layout from "@/components/layout";
 import PageHeader from "@/components/PageHeader";
-import SectionHeader from "@/components/SectionHeader";
-import BenefitsModule from "@/components/BenefitsModule";
-import bitblockboom from "@/data/content/bitBlockBoom.json";
-import sponsors from "@/data/content/sponsors.json";
-import Sponsors from "@/components/Sponsors";
-import { Check } from "lucide-react";
-import PrizePool from "@/components/PrizePool";
 import ButtonPrimary from "@/components/ButtonPrimary";
 import HackathonCard from "@/components/HackathonCard";
 
-import Image from "next/image";
+export default function TeamsPage() {
+  const [teams, setTeams] = useState([]);
 
-export default function HackathonList() {
+  useEffect(() => {
+    const fetchTeams = async () => {
+      try {
+        const teams = await fetch(`/api/team/`, {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        });
+
+        if (teams.ok) {
+          const teamsData = await teams.json();
+          setTeams(teamsData);
+        } else {
+          console.error("Error fetching teams:", teams.statusText);
+        }
+      } catch (error) {
+        console.error("Error fetching teams:", error);
+      }
+    };
+
+    fetchTeams(); // Call the fetchTeams function
+  }, []); // Empty dependency array to ensure the effect runs only once on mount
+
   return (
     <Layout>
       <div className="py-4 sm:py-12">
@@ -28,10 +45,12 @@ export default function HackathonList() {
             buttonLink={"/team/create"}
           />
           <div className="my-8">
-            <HackathonCard
-              headerText={"ZBDream"}
-              descriptionText={"A team for the BitBlockBoom hackathon."}
-            />
+            {teams.map((team) => (
+              <HackathonCard
+                headerText={team.name}
+                descriptionText={team.description}
+              />
+            ))}
           </div>
         </div>
       </div>

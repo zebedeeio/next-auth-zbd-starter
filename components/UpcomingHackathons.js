@@ -1,7 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import HackathonCard from "@/components/HackathonCard";
 
 const UpcomingHackathons = ({ data }) => {
+  const [hackathons, setHackathons] = useState([]);
+
+  useEffect(() => {
+    const fetchHackathons = async () => {
+      try {
+        const hackathons = await fetch(`/api/hackathons/`, {
+          method: "GET",
+          headers: { "Content-Type": "application/json" },
+        });
+
+        if (hackathons.ok) {
+          const hackathonsData = await hackathons.json();
+          setHackathons(hackathonsData);
+        } else {
+          console.error("Error fetching hackathons:", hackathons.statusText);
+        }
+      } catch (error) {
+        console.error("Error fetching hackathons:", error);
+      }
+    };
+
+    fetchHackathons(); // Call the fetchHackathons function
+  }, []); // Empty dependency array to ensure the effect runs only once on mount
+
   return (
     <div className="py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -14,11 +38,11 @@ const UpcomingHackathons = ({ data }) => {
           </p>
         </div>
         <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 pt-10 sm:mt-8 sm:pt-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          {data.data.map((item) => (
+          {hackathons.map((hackathon) => (
             <HackathonCard
-              headerText={item[0]}
-              descriptionText={item[1]}
-              buttonLink={"/hackathons/bitblockboom"}
+              headerText={hackathon.title}
+              descriptionText={hackathon.description}
+              buttonLink={`/hackathons/${hackathon.id}`}
             />
           ))}
         </div>

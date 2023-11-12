@@ -35,7 +35,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "components/*",
-    "pages/hackathons/bitblockboom/index.js",
+    "pages/hackathons/[hackathonId]/index.js",
     "pages/hackathons/create.js"
   ],
   "exclude": ["node_modules"]
