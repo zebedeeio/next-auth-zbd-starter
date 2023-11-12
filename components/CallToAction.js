@@ -22,9 +22,9 @@ const CallToAction = ({ data }) => {
             ))}
           </div>
         </div>
-        <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
+        {/* <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
           <ButtonPrimary buttonText={"Get ZBD"} buttonLink={""} />
-        </div>
+        </div> */}
       </div>
     </div>
   );

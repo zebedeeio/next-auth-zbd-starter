@@ -35,8 +35,6 @@ const ProjectSubmissionForm = ({ hackathonId }) => {
     } catch (error) {
       console.error(error);
     }
-
-    // const forumId = await createForum({ subject, description });
   };
 
   return (

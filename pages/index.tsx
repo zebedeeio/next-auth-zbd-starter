@@ -1,7 +1,7 @@
 import Layout from "../components/layout";
 import HeroModule from "@/components/HeroModule";
 import BenefitsModule from "@/components/BenefitsModule";
-import UpcomingHackathons from "@/components/UpcomingHackathons";
+import Hackathons from "@/components/Hackathons";
 
 import Sponsors from "@/components/Sponsors";
 import CallToAction from "@/components/CallToAction";
@@ -18,7 +18,7 @@ export default function IndexPage() {
 
       <BenefitsModule data={developerBenefits} />
 
-      <UpcomingHackathons data={hackathons} />
+      <Hackathons data={hackathons} />
 
       <Sponsors data={sponsors} />
 

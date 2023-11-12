@@ -23,21 +23,21 @@ const HeroModule = () => {
             through innovation and creativity? Join us at the forefront of the
             revolution and be a part of something extraordinary. Welcome to
             ZBD's Bitcoin Hackathons, where brilliance meets the Lightning
-            Network!🚀
+            Network & Nostr!🚀
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <a
-              href="#"
+              href="/hackathons"
               className="rounded-full bg-lime-400 hover:bg-lime-600 px-3.5 py-2.5 text-sm font-semibold text-black border border-black border-1 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
               Get started
             </a>
-            <a
+            {/* <a
               href="#"
               className="text-sm font-semibold leading-6 text-gray-900"
             >
               Learn more <span aria-hidden="true">→</span>
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
