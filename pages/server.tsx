@@ -1,4 +1,4 @@
-import { auth } from "auth";
+import { auth } from "@/lib/auth";
 import Layout from "../components/layout";
 
 import type { GetServerSidePropsContext } from "next";

@@ -5,13 +5,15 @@ import type {
 } from "next";
 import type { NextAuthOptions as NextAuthConfig } from "next-auth";
 import { getServerSession } from "next-auth";
+import { PrismaAdapter } from "@auth/prisma-adapter";
+import prisma from "./db";
 import { getZBDProvider } from "next-auth-zbd-provider";
 
 // Read more at: https://next-auth.js.org/getting-started/typescript#module-augmentation
 declare module "next-auth/jwt" {
   interface JWT {
     /** The user's role. */
-    userRole?: "admin";
+    userRole?: "user";
   }
 }
 
@@ -23,12 +25,13 @@ const zbdConfig = getZBDProvider({
 });
 
 export const config = {
+  adapter: PrismaAdapter(prisma),
   secret: process.env.NEXTAUTH_SECRET,
   debug: true,
   providers: [zbdConfig],
   callbacks: {
     async jwt({ token }) {
-      token.userRole = "admin";
+      token.userRole = "user";
       return token;
     },
   },

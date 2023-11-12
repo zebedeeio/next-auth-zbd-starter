@@ -11,6 +11,7 @@ import PrizePool from "@/components/PrizePool";
 import ButtonPrimary from "@/components/ButtonPrimary";
 import Image from "next/image";
 import { useState } from "react";
+import prisma from "@prisma/client";
 
 export default async function HackathonList() {
   const [title, setTitle] = useState("");
@@ -18,7 +19,7 @@ export default async function HackathonList() {
   const [authorEmail, setAuthorEmail] = useState("");
   const router = useRouter();
 
-  const teams = await prisma.post.findMany();
+  const [...teams] = await prisma.post.findMany();
 
   const submitData = async (e) => {
     e.preventDefault();
@@ -30,7 +31,7 @@ export default async function HackathonList() {
         body: JSON.stringify(body),
       });
 
-      router.push("/");
+      router.push("/success");
     } catch (error) {
       console.error(error);
     }
@@ -67,6 +68,7 @@ export default async function HackathonList() {
                   name="team"
                   autoComplete="team"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
+                  required
                 >
                   <option>Select</option>
                   <option>ZBDream</option>

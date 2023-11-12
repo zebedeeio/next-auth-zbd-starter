@@ -5,21 +5,65 @@ generator client {
 }
 
 datasource db {
-  // provider = "sqlite"
-  // url      = "file:./dev.db"
-
-  // url      = process.env.DATABASE_URL
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
+model Account {
+  id                       String  @id @default(cuid())
+  userId                   String
+  type                     String
+  provider                 String
+  providerAccountId        String
+  refresh_token            String? @db.Text
+  refresh_token_expires_in Int?
+  access_token             String? @db.Text
+  expires_at               Int?
+  token_type               String?
+  scope                    String?
+  id_token                 String? @db.Text
+  session_state            String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
 model User {
-  id         String      @id @default(cuid())
-  email      String      @unique
-  gamertag   String
-  role       Role        @default(USER)
-  hackathons Hackathon[]
-  teams      Team[]
+  id                    String      @id @default(cuid())
+  name                  String?
+  email                 String?     @unique
+  gamertag              String
+  role                  Role        @default(USER)
+  hackathons            Hackathon[]
+  teams                 Team[]
+  emailVerified         Boolean?
+  image                 String?
+  accounts              Account[]
+  sessions              Session[]
+  isVerified            Boolean?
+  lightningAddress      String?
+  publicBio             String?
+  publicStaticCharge    String?
+  social                Json?
+  balance               String?
+  remainingAmountLimits Json?
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
 }
 
 model Team {
@@ -46,11 +90,11 @@ model Hackathon {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  title          String
-  description    String
-  benefits       String
-  rules          String
-  judingCriteria String
+  title           String
+  description     String
+  benefits        String
+  rules           String
+  judgingCriteria String
 
   firstPlacePrize  String
   secondPlacePrize String
@@ -63,8 +107,8 @@ model Hackathon {
   creator   User    @relation(fields: [creatorId], references: [id])
   creatorId String
 
-  startDate DateTime
-  endDate   DateTime
+  startDate String
+  endDate   String
 }
 
 model HackathonRegistration {

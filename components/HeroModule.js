@@ -21,9 +21,9 @@ const HeroModule = () => {
           <p className="mt-6 text-lg leading-8 text-gray-600">
             Are you ready to unlock the future of esports, payments, and gaming
             through innovation and creativity? Join us at the forefront of the
-            cryptocurrency revolution and be a part of something extraordinary.
-            Welcome to ZBD's Bitcoin Hackathons, where brilliance meets the
-            Lightning Network!🚀
+            revolution and be a part of something extraordinary. Welcome to
+            ZBD's Bitcoin Hackathons, where brilliance meets the Lightning
+            Network!🚀
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <a

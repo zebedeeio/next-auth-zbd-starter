@@ -1,4 +1,4 @@
-import prisma from "@/lib/prisma";
+import prisma from "@/lib/db";
 
 export default async function handle(req, res) {
   const token = await getToken({ req });
