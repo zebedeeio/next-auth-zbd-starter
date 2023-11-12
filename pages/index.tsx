@@ -1,36 +1,28 @@
 import Layout from "../components/layout";
-import HeroModule from "@/components/HeroModule"
-import BenefitsModule from "@/components/BenefitsModule"
-import UpcomingHackathons from "@/components/UpcomingHackathons"
+import HeroModule from "@/components/HeroModule";
+import BenefitsModule from "@/components/BenefitsModule";
+import UpcomingHackathons from "@/components/UpcomingHackathons";
 
-import Sponsors from "@/components/Sponsors"
-import CallToAction from "@/components/CallToAction"
-import developerBenefits from "@/data/content/developerBenefits.json"
+import Sponsors from "@/components/Sponsors";
+import CallToAction from "@/components/CallToAction";
+import developerBenefits from "@/data/content/developerBenefits.json";
 
-
-import homePage from "@/data/content/homePageCta.json"
-import hackathons from "@/data/content/hackathons.json"
-import sponsors from "@/data/content/sponsors.json"
-
-
-
-
-
-
+import homePage from "@/data/content/homePageCta.json";
+import hackathons from "@/data/content/hackathons.json";
+import sponsors from "@/data/content/sponsors.json";
 
 export default function IndexPage() {
   return (
     <Layout>
-        <HeroModule />
+      <HeroModule />
 
-        <BenefitsModule data={developerBenefits} />
+      <BenefitsModule data={developerBenefits} />
 
-        <UpcomingHackathons data={hackathons} />
+      <UpcomingHackathons data={hackathons} />
 
-        <Sponsors data={sponsors} />
+      <Sponsors data={sponsors} />
 
-        <CallToAction data={homePage} />
-
+      <CallToAction data={homePage} />
     </Layout>
   );
 }

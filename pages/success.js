@@ -8,7 +8,6 @@ export default function HackathonList() {
     <Layout>
       <div className="py-4 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-
           <Image
             className="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
             alt="Success Image"
@@ -19,7 +18,9 @@ export default function HackathonList() {
           <div className="text-center">
             <PageHeader
               headerText={"Success!"}
-              descriptionText={"You've succesfully signed-up for the hackathon."}
+              descriptionText={
+                "You've succesfully signed-up for the hackathon."
+              }
             />
             <ButtonPrimary buttonText={"Finish"} buttonLink={"/"} />
           </div>

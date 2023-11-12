@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonPrimary from "@/components/ButtonPrimary"
+import ButtonPrimary from "@/components/ButtonPrimary";
 
 const HackathonCard = ({ headerText, descriptionText, buttonLink = "#" }) => {
   return (

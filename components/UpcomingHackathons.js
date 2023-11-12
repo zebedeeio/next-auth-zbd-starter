@@ -17,11 +17,8 @@ const UpcomingHackathons = ({ data }) => {
           {data.data.map((item) => (
             <HackathonCard
               headerText={item[0]}
-              descriptionText={
-                item[1]
-              }
+              descriptionText={item[1]}
               buttonLink={"/hackathons/bitblockboom"}
-              
             />
           ))}
         </div>

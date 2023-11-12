@@ -1,4 +1,8 @@
-import type { GetServerSidePropsContext, NextApiRequest, NextApiResponse } from "next";
+import type {
+  GetServerSidePropsContext,
+  NextApiRequest,
+  NextApiResponse,
+} from "next";
 import type { NextAuthOptions as NextAuthConfig } from "next-auth";
 import { getServerSession } from "next-auth";
 import { getZBDProvider } from "next-auth-zbd-provider";
@@ -7,7 +11,7 @@ import { getZBDProvider } from "next-auth-zbd-provider";
 declare module "next-auth/jwt" {
   interface JWT {
     /** The user's role. */
-    userRole?: "admin"
+    userRole?: "admin";
   }
 }
 
@@ -24,27 +28,32 @@ export const config = {
   providers: [zbdConfig],
   callbacks: {
     async jwt({ token }) {
-      token.userRole = "admin"
+      token.userRole = "admin";
       return token;
     },
   },
-} satisfies NextAuthConfig
+} satisfies NextAuthConfig;
 
 // Helper function to get session without passing config every time
 // https://next-auth.js.org/configuration/nextjs#getserversession
-export function auth(...args: [GetServerSidePropsContext["req"], GetServerSidePropsContext["res"]] | [NextApiRequest, NextApiResponse] | []) {
-  return getServerSession(...args, config)
+export function auth(
+  ...args:
+    | [GetServerSidePropsContext["req"], GetServerSidePropsContext["res"]]
+    | [NextApiRequest, NextApiResponse]
+    | []
+) {
+  return getServerSession(...args, config);
 }
 
 // We recommend doing your own environment variable validation
 declare global {
   namespace NodeJS {
     export interface ProcessEnv {
-      NEXTAUTH_SECRET: string
+      NEXTAUTH_SECRET: string;
 
-      AUTH_ZBD_ID: string
-      AUTH_ZBD_SECRET: string
-      AUTH_ZBD_LIVE_KEY: string
+      AUTH_ZBD_ID: string;
+      AUTH_ZBD_SECRET: string;
+      AUTH_ZBD_LIVE_KEY: string;
     }
   }
 }

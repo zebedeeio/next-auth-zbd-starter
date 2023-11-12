@@ -1,12 +1,7 @@
 {
   "compilerOptions": {
-    
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -23,8 +18,8 @@
     "paths": {
       "@/styles/*": ["styles/*"],
       "@/components/*": ["components/*"],
-      "@/data/*": ["data/*"]
-
+      "@/data/*": ["data/*"],
+      "@/lib/*": ["lib/*"]
     },
     "plugins": [
       {
@@ -37,9 +32,10 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
-, "components/*", "pages/hackathons/bitblockboom/index.js" ],
-  "exclude": [
-    "node_modules"
-  ]
+    ".next/types/**/*.ts",
+    "components/*",
+    "pages/hackathons/bitblockboom/index.js",
+    "pages/hackathons/create.js"
+  ],
+  "exclude": ["node_modules"]
 }

@@ -23,14 +23,17 @@ export default function HackathonList() {
             descriptionText={"Create a team in order to compete in hackathons."}
           />
 
-          <ButtonPrimary buttonText={"Create team"} buttonLink={"/team/create"} />
+          <ButtonPrimary
+            buttonText={"Create team"}
+            buttonLink={"/team/create"}
+          />
           <div className="my-8">
-            <HackathonCard headerText={"ZBDream"} descriptionText={"A team for the BitBlockBoom hackathon."} />
-
+            <HackathonCard
+              headerText={"ZBDream"}
+              descriptionText={"A team for the BitBlockBoom hackathon."}
+            />
           </div>
-
         </div>
-        
       </div>
     </Layout>
   );

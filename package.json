@@ -13,11 +13,13 @@
   },
   "author": "Andre Neves <andre@zebedee.io>",
   "dependencies": {
+    "@prisma/client": "^5.5.2",
     "@tailwindcss/forms": "^0.5.7",
     "lucide-react": "^0.292.0",
     "next": "latest",
     "next-auth": "latest",
     "next-auth-zbd-provider": "^0.3.8",
+    "prisma": "^5.5.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

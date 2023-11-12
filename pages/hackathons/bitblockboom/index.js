@@ -11,7 +11,7 @@ import ButtonPrimary from "@/components/ButtonPrimary";
 import Image from "next/image";
 
 export default function HackathonList() {
-  const signedUp = false 
+  const signedUp = false;
   return (
     <Layout>
       <div className="py-4 sm:py-12">
@@ -24,10 +24,17 @@ export default function HackathonList() {
             }
           />
           <div className="my-4 mb-8">
-            {!signedUp ? <ButtonPrimary buttonText={"Sign-Up"} buttonLink="/hackathons/bitblockboom/sign-up" /> : (
-              <ButtonPrimary buttonText={"Submit Project"} buttonLink="/hackathons/bitblockboom/submit" />
+            {!signedUp ? (
+              <ButtonPrimary
+                buttonText={"Register"}
+                buttonLink="/hackathons/bitblockboom/register"
+              />
+            ) : (
+              <ButtonPrimary
+                buttonText={"Submit Project"}
+                buttonLink="/hackathons/bitblockboom/submit"
+              />
             )}
-
           </div>
           <div className="mx-auto max-w-4xl gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none">
             <div className="lg:pr-8 lg:pt-4">

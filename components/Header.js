@@ -20,7 +20,7 @@ export default function Header() {
   return (
     <div>
       <header>
-        <nav className="flex flex-row p-4 mb-4 bg-black justify-between  ">
+        <nav className="flex flex-row align-middle p-4 mb-4 bg-black justify-between ">
           <Link href="/">
             <Image
               src="/logo.png"

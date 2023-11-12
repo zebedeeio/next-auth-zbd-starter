@@ -1,6 +1,6 @@
-import Header from "./Header"
-import Footer from "./Footer"
-import type { ReactNode } from "react"
+import Header from "./Header";
+import Footer from "./Footer";
+import type { ReactNode } from "react";
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
@@ -9,5 +9,5 @@ export default function Layout({ children }: { children: ReactNode }) {
       <main className="mx-8">{children}</main>
       <Footer />
     </>
-  )
+  );
 }

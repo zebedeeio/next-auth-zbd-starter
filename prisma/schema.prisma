@@ -1,0 +1,108 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  // provider = "sqlite"
+  // url      = "file:./dev.db"
+
+  // url      = process.env.DATABASE_URL
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         String      @id @default(cuid())
+  email      String      @unique
+  gamertag   String
+  role       Role        @default(USER)
+  hackathons Hackathon[]
+  teams      Team[]
+}
+
+model Team {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  name        String
+  description String
+  teamMembers String
+  teamAvatar  String
+
+  projects      Project[]
+  registrations HackathonRegistration[]
+
+  creator   User   @relation(fields: [creatorId], references: [id])
+  creatorId String
+
+  @@unique([creatorId, name])
+}
+
+model Hackathon {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  title          String
+  description    String
+  benefits       String
+  rules          String
+  judingCriteria String
+
+  firstPlacePrize  String
+  secondPlacePrize String
+  thirdPlacePrize  String
+
+  projects      Project[]
+  registrations HackathonRegistration[]
+
+  published Boolean @default(false)
+  creator   User    @relation(fields: [creatorId], references: [id])
+  creatorId String
+
+  startDate DateTime
+  endDate   DateTime
+}
+
+model HackathonRegistration {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  hackathon   Hackathon @relation(fields: [hackathonId], references: [id])
+  hackathonId String
+  team        Team      @relation(fields: [teamId], references: [id])
+  teamId      String
+
+  @@unique([teamId, hackathonId])
+}
+
+model Project {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  name                String
+  description         String
+  loomLink            String
+  pitchLink           String
+  projectResourceLink String
+  comments            String?
+
+  hackathon   Hackathon @relation(fields: [hackathonId], references: [id])
+  hackathonId String
+
+  team   Team   @relation(fields: [teamId], references: [id])
+  teamId String
+
+  @@unique([teamId, name])
+}
+
+enum Role {
+  USER
+  ADMIN
+  JUDGE
+}
