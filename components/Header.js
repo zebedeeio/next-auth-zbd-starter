@@ -20,15 +20,45 @@ export default function Header() {
   return (
     <div>
       <header>
-        <nav className="flex flex-row align-middle p-4 mb-4 bg-black justify-between ">
-          <Link href="/">
-            <Image
-              src="/logo.png"
-              alt="ZBD Hackathon Logo"
-              width={300}
-              height={32}
-            />
-          </Link>
+        <nav className="flex flex-row align-middle p-4 mb-4 bg-black text-white justify-between border-b-4 border-purple-400/[.60]">
+          <div className="flex flex-row space-x-6">
+            <Link href="/">
+              <Image
+                src="/logo.svg"
+                alt="Global Hackathon League Logo"
+                width={84}
+                height={42}
+              />
+            </Link>
+            <ul className="flex flex-row space-x-6 items-center">
+              <li>
+                <Link className="hover:text-purple-500" href="/hackathons">
+                  Hackathons
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:text-purple-500" href="/learn">
+                  Learn
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:text-purple-500" href="/organizers">
+                  Organizers
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:text-purple-500" href="/sponsor">
+                  Sponsor
+                </Link>
+              </li>
+              <li>
+                <Link className="hover:text-purple-500" href="/contact">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
+
           <div>
             {!loading && !session && (
               <ButtonPrimary
