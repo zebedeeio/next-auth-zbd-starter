@@ -27,7 +27,7 @@ const Hackathons = ({ data }) => {
   }, []); // Empty dependency array to ensure the effect runs only once on mount
 
   return (
-    <div className="py-24 sm:py-32">
+    <div className="py-12 text-left">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-6xl lg:mx-0">
           <h2 className="text-3xl font-bold tracking-tight  sm:text-4xl">
