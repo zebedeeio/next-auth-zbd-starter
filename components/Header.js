@@ -20,8 +20,8 @@ export default function Header() {
   return (
     <div>
       <header>
-        <nav className="flex flex-row align-middle p-4 mb-4 bg-black text-white justify-between border-b-4 border-purple-400/[.60]">
-          <div className="flex flex-row space-x-6">
+        <nav className="flex flex-row align-middle p-4 mb-4 text-white justify-between border-b-4 border-purple-400/[.20]">
+          <div className="flex flex-row space-x-4">
             <Link href="/">
               <Image
                 src="/logo.svg"
@@ -30,14 +30,17 @@ export default function Header() {
                 height={42}
               />
             </Link>
-            <ul className="flex flex-row space-x-6 items-center">
+            <ul className="hidden md:flex flex-row space-x-6 items-center">
               <li>
                 <Link className="hover:text-purple-500" href="/hackathons">
                   Hackathons
                 </Link>
               </li>
               <li>
-                <Link className="hover:text-purple-500" href="/learn">
+                <Link
+                  className="hover:text-purple-500"
+                  href="https://emeralize.app/marketplace"
+                >
                   Learn
                 </Link>
               </li>

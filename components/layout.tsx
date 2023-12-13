@@ -4,10 +4,10 @@ import type { ReactNode } from "react";
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
-    <>
+    <div className="bg-gray-950 text-white min-h-screen">
       <Header />
-      <main className="mx-8">{children}</main>
+      <main>{children}</main>
       <Footer />
-    </>
+    </div>
   );
 }
