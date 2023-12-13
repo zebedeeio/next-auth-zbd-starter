@@ -3,10 +3,10 @@ import ButtonPrimary from "@/components/ButtonPrimary";
 
 const HackathonCard = ({ headerText, descriptionText, buttonLink = "#" }) => {
   return (
-    <div className="w-60 rounded-sm border-solid border-2 border-purple-600 flex flex-col text-left">
+    <div className="w-full md:w-60 h-80 rounded-md border-solid border-2 border-purple-600 flex flex-col text-left">
       <img
         className="w-full h-24 object-cover object-center border-solid border-b-2 border-purple-500"
-        src="https://i.imgur.com/JrOYjXg.png"
+        src="/hackathon-card.svg"
         alt="Card Image"
       />
 
