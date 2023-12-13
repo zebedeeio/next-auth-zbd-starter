@@ -3,7 +3,7 @@ import { ChevronRight } from "lucide-react";
 
 const HeroModule = () => {
   return (
-    <div className="px-6 lg:px-8 py-12">
+    <div className="px-6 lg:px-8 py-12 ">
       <div className="m-auto max-w-3xl py-16">
         <div className="text-center">
           <h1 className="text-4xl font-bold tracking-tight sm:text-6xl bg-gradient-to-r from-blue-500 via-purple-500 to-white text-transparent bg-clip-text h-32">

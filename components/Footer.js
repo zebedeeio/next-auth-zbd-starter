@@ -7,7 +7,7 @@ import Image from "next/image";
 export default function Footer() {
   return (
     <footer className="flex flex-row bottom-0 mt-auto w-full justify-between h-20 px-8 items-center border-t-4 border-purple-400/[.20] text-lg">
-      <div>
+      <div className="hidden md:inline">
         <Link href="/">
           <Image
             src="/logo.svg"
@@ -26,7 +26,7 @@ export default function Footer() {
           Zantoshi
         </a>
       </div>
-      <div className="flex flex-row gap-8 ">
+      <div className="flex flex-row gap-8">
         <a className="hover:text-lime-400" href="https://github.com/zebedeeio">
           <Github />
         </a>

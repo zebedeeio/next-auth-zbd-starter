@@ -20,7 +20,7 @@ export default function Header() {
   return (
     <div>
       <header>
-        <nav className="flex flex-row align-middle p-4 mb-4 text-white justify-between border-b-4 border-purple-400/[.20]">
+        <nav className="flex flex-row align-middle p-4  text-white justify-between border-b-4 border-purple-400/[.20]">
           <div className="flex flex-row space-x-4">
             <Link href="/">
               <Image
@@ -76,7 +76,7 @@ export default function Header() {
                     <Image
                       src={session.user.image}
                       alt="User Profile Image"
-                      className="md:h-12 md:w-12 rounded-full mr-4 hidden md:inline-block"
+                      className="h-12 w-12 rounded-full mr-2 inline-block"
                       width={12}
                       height={12}
                     />
