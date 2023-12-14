@@ -8,9 +8,9 @@ function Organizers() {
       <h1 className="text-3xl font-bold">Organizers</h1>
       <p className="text-gray-400 font-semibold opacity-90 text-lg ">Organizer Copy Text</p>
        {/*Hardcoding the organizers' data */}
-      <div className="border border-purple-500 container max-w-sm p-5 ">
+      <div className="md:border border-purple-500 container max-w-sm p-5 ">
       <Image
-      src="/profile.png"
+      src="/#"
       width={50}
       height={50}
       alt="Picture of the author"
