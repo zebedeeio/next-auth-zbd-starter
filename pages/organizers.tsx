@@ -3,7 +3,7 @@ import Organizers from "@/components/Organizers";
 
 const organizers = () => {
   return <Layout>
-    <Organizers></Organizers>
+    <Organizers ></Organizers>
   </Layout>
 };
 
