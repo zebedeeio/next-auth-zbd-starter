@@ -13,15 +13,15 @@ function Organizers() {
     <div className='container flex mt-2 md:mt-5'>
     <div className="md:border border-purple-500 rounded-lg md:p-5">
       <Image
-      src="/"
+      src="/organizer.jpg"
       width={80}
       height={80}
       alt="Picture of the author"
-       className='rounded-full border border-white mb-3'
+       className='rounded-full  mb-3'
          />
      <h2 className='block mb-2 font-bold md:text-md text-xl'>Santos Hernandez</h2>
      <p className='block mb-3'>Founder </p>
-     <Link href="/"><Globe className='w-' size={24}/></Link>
+     <Link href="https://twitter.com/5antoshernandez" target='_blank'><Globe className='w-' size={24}/></Link>
       </div>
     </div>
     </main>
