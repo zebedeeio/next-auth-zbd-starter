@@ -20,7 +20,7 @@ const Sponsors = ({ data }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`#`, {
+      const response = await fetch(`/api/sponsors/create`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
@@ -55,7 +55,7 @@ const Sponsors = ({ data }) => {
       <div className="w-full md:pl-14">
         <section className="space-y-3 flex flex-col justify-start items-start px-10">
           <div className="mb-2">
-            <h1 className="text-3xl font-bold pb-3">Sponsors GHL</h1>
+            <h1 className="md:text-3xl font-bold pb-3 text-4xl">Sponsors GHL</h1>
             <p className="text-gray-400 font-semibold  text-lg ">Interested in helping us spreading innovation? Reach out</p>
           </div>
           <form className="" onSubmit={handleSubmit}>
@@ -75,7 +75,7 @@ const Sponsors = ({ data }) => {
                       id="name"
                       autoComplete="Namne"
                       placeholder="Enter your name"
-                      className="block rounded-md border-0 py-3 text-white shadow-sm ring-1 ring-inset ring-purple-500 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-field w-80 placeholder:opacity-70 placeholder:font-semibold"
+                      className="block rounded-md border-0 py-3 text-white shadow-sm ring-1 ring-inset ring-purple-500 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-field w-80 placeholder:opacity-60 placeholder:font-semibold"
                       defaultValue={""}
                       onChange={handleChange}
                       values={values.name}
@@ -100,7 +100,7 @@ const Sponsors = ({ data }) => {
                       id="email"
                       autoComplete="Email"
                       placeholder="your@mail.com"
-                      className="block w-full rounded-md border-0 py-3 text-white shadow-sm ring-1 ring-inset ring-purple-500 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-field placeholder:opacity-70 placeholder:font-semibold"
+                      className="block w-full rounded-md border-0 py-3 text-white shadow-sm ring-1 ring-inset ring-purple-500 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-field placeholder:opacity-60 placeholder:font-semibold"
                       defaultValue={""}
                       onChange={handleChange}
                       value={values.email}
@@ -125,7 +125,7 @@ const Sponsors = ({ data }) => {
                       id="company"
                       autoComplete="Company"
                       placeholder="Enter your company name"
-                      className="block w-full rounded-md border-0 py-3 text-white shadow-sm ring-1 ring-inset ring-purple-500 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-field placeholder:opacity-70 placeholder:font-semibold"
+                      className="block w-full rounded-md border-0 py-3 text-white shadow-sm ring-1 ring-inset ring-purple-500 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-field placeholder:opacity-60 placeholder:font-semibold"
                       defaultValue={""}
                       onChange={handleChange}
                       value={values.company}

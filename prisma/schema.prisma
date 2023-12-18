@@ -56,7 +56,6 @@ model User {
   social                Json?
   balance               String?
   remainingAmountLimits Json?
-  Sponsors              Sponsors[]
 }
 
 model VerificationToken {
@@ -156,8 +155,6 @@ model Sponsors {
   name      String
   email     String
   company   String
-  creator   User   @relation(fields: [creatorId], references: [id])
-  creatorId String
 }
 
 enum Role {
