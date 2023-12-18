@@ -56,7 +56,6 @@ model User {
   social                Json?
   balance               String?
   remainingAmountLimits Json?
-  Contact               Contact[]
 }
 
 model VerificationToken {
@@ -151,14 +150,13 @@ model Project {
   @@unique([teamId, hackathonId])
 }
 
+//Delete creatorID, then i have to make the test
 model Contact {
   id        String @id @default(cuid())
   name      String
   email     String
   company   String
   comments  String
-  creator   User   @relation(fields: [creatorId], references: [id])
-  creatorId String
 }
 
 enum Role {

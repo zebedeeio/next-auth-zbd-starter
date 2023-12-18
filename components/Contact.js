@@ -4,21 +4,21 @@ import { useState } from "react";
 
 function Contact() {
   const router = useRouter();
-  const [values,setValues] = useState({
-    name:" ",
-    email:"",
-    company:"",
-    comments:"",
+  const [values, setValues] = useState({
+    name: " ",
+    email: "",
+    company: "",
+    comments: "",
   })
 
-  const handleChange= (e)=>{
-    setValues({...values,[e.target.name]:e.target.value})
+  const handleChange = (e) => {
+    setValues({ ...values, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = async (e)=>{
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-     const response= await fetch(`/api/contact/create`, {
+      const response = await fetch(`/api/contact/create`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
@@ -54,7 +54,7 @@ function Contact() {
                     id="name"
                     autoComplete="Namne"
                     placeholder="Enter your name"
-                    className="block rounded-md border-0 py-3 text-white shadow-sm ring-1 ring-inset ring-purple-500 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-field w-80 placeholder:opacity-70 placeholder:font-semibold"
+                    className="block rounded-md border-0 py-3 text-white shadow-sm ring-1 ring-inset ring-purple-500 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-field w-80 placeholder:opacity-60 placeholder:font-semibold"
                     defaultValue={""}
                     onChange={handleChange}
                     values={values.name}
@@ -79,7 +79,7 @@ function Contact() {
                     id="email"
                     autoComplete="Email"
                     placeholder="your@mail.com"
-                    className="block w-full rounded-md border-0 py-3 text-white shadow-sm ring-1 ring-inset ring-purple-500 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-field placeholder:opacity-70 placeholder:font-semibold"
+                    className="block w-full rounded-md border-0 py-3 text-white shadow-sm ring-1 ring-inset ring-purple-500 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-field placeholder:opacity-60 placeholder:font-semibold"
                     defaultValue={""}
                     onChange={handleChange}
                     value={values.email}
@@ -104,7 +104,7 @@ function Contact() {
                     id="company"
                     autoComplete="Company"
                     placeholder="Enter your company name"
-                    className="block w-full rounded-md border-0 py-3 text-white shadow-sm ring-1 ring-inset ring-purple-500 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-field placeholder:opacity-70 placeholder:font-semibold"
+                    className="block w-full rounded-md border-0 py-3 text-white shadow-sm ring-1 ring-inset ring-purple-500 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 bg-field placeholder:opacity-60 placeholder:font-semibold"
                     defaultValue={""}
                     onChange={handleChange}
                     value={values.company}
@@ -128,7 +128,7 @@ function Contact() {
                     name="comments"
                     rows={5}
                     className="block w-full rounded-md border-0 py-1.5 text-white shadow-sm ring-1 ring-inset ring-purple-500 placeholder:text-white focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 resize-none bg-field placeholder:opacity-70"
-                     defaultValue={""}
+                    defaultValue={""}
                     onChange={handleChange}
                     value={values.comments}
                     required
