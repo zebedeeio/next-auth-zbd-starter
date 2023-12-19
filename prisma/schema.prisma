@@ -150,13 +150,19 @@ model Project {
   @@unique([teamId, hackathonId])
 }
 
-//Delete creatorID, then i have to make the test
 model Contact {
   id        String @id @default(cuid())
   name      String
   email     String
   company   String
   comments  String
+}
+
+model Sponsors {
+  id        String @id @default(cuid())
+  name      String
+  email     String
+  company   String
 }
 
 enum Role {
