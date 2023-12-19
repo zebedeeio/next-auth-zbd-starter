@@ -34,7 +34,7 @@ function Contact() {
     <div className="w-full md:pl-14">
       <section className="space-y-3 flex flex-col justify-start items-start px-10">
         <div className="mb-2">
-          <h1 className="text-3xl font-bold pb-3 custom-text-shadow">Contact Us</h1>
+          <h1 className="font-bold pb-3 custom-text-shadow text-4xl">Contact Us</h1>
           <p className="text-gray-400 font-semibold  text-lg ">Interested in helping us spreading innovation? Reach out</p>
         </div>
         <form className="" onSubmit={handleSubmit}>
