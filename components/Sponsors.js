@@ -55,7 +55,7 @@ const Sponsors = ({ data }) => {
       <div className="w-full md:pl-14">
         <section className="space-y-3 flex flex-col justify-start items-start px-10">
           <div className="mb-2">
-            <h1 className="md:text-3xl font-bold pb-3 text-4xl custom-text-shadow">Sponsors GHL</h1>
+            <h1 className="font-bold pb-3 text-4xl custom-text-shadow">Sponsors GHL</h1>
             <p className="text-gray-400 font-semibold  text-lg ">Interested in helping us spreading innovation? Reach out</p>
           </div>
           <form className="" onSubmit={handleSubmit}>
