@@ -150,6 +150,21 @@ model Project {
   @@unique([teamId, hackathonId])
 }
 
+model Contact {
+  id        String @id @default(cuid())
+  name      String
+  email     String
+  company   String
+  comments  String
+}
+
+model Sponsors {
+  id        String @id @default(cuid())
+  name      String
+  email     String
+  company   String
+}
+
 enum Role {
   USER
   ADMIN
