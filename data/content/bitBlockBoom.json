@@ -1,0 +1,24 @@
+{
+  "headerText": "What will you get?",
+  "descriptionText": "Join teams of like-minded individuals, solve real-world problems, and make a difference. The future of technology is in your hands!",
+  "data": [
+    ["Presentation on the Main Stage!"],
+    [
+      "Join a robust community of developers all focused on building the future."
+    ],
+    ["If you’re looking for beginner level tasks: check out our bounties."],
+    [
+      "If you’re looking for a job in the space: find work getting connected to our partners to find freelance / contract work."
+    ],
+    [
+      "If you’re looking to start a company: get connected to our partner accelerators and network of angel investors."
+    ],
+    ["Get promoted on socials."],
+    ["Spotlight in the ZBD app"],
+    [
+      "Take a break from your day job and build that thing you’ve been wanting to build."
+    ],
+    ["Having fun, meeting new people."]
+  ],
+  "prizes": [["1st Place Prize", "$500 in bitcoin"], ["2nd Place Prize", "$250 in bitcoin"], ["3rd Place Prize", "$50 in bitcoin"]]
+}

@@ -1,27 +1,36 @@
 {
-  "name": "next-auth-zbd-starter",
-  "description": "An example project for ZBD OAuth2 on NextAuth.js with Next.js",
-  "repository": "https://github.com/zebedeeio/next-auth-zbd-starter.git",
+  "name": "hackathon-platform",
+  "description": "A hackathon project that enables as many hackathons as I wish.",
+  "repository": "https://github.com/zantoshi/hackathon-platform.git",
   "bugs": {
-    "url": "https://github.com/zebedeeio/next-auth-zbd-starter/issues"
+    "url": "https://github.com/zantoshi/hackathon-platform/issues"
   },
-  "homepage": "https://nextauth.zbd.dev",
+  "homepage": "https://santos.lol",
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "postinstall": "prisma generate"
   },
-  "author": "Andre Neves <andre@zebedee.io>",
+  "author": "Santos Hernandez <santos@zbd.gg>",
   "dependencies": {
-    "next": "latest",
-    "next-auth": "latest",
+    "@auth/prisma-adapter": "^1.0.6",
+    "@prisma/client": "^5.5.2",
+    "@tailwindcss/forms": "^0.5.7",
+    "lucide-react": "^0.292.0",
+    "next": "^14.0.1",
+    "next-auth": "^4.24.4",
     "next-auth-zbd-provider": "^0.3.8",
+    "prisma": "^5.5.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/node": "^18.16.2",
     "@types/react": "^18.2.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
     "typescript": "5.2.2"
   }
 }

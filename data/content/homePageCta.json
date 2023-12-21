@@ -1,0 +1,15 @@
+{
+  "headerText": "Start Learning",
+  "descriptionText": "New to Bitcoin? Ready to embark on this thrilling journey with us? Join ZBD and be a part of the Bitcoin revolution powered by the Lightning Network. Together, we'll redefine the financial landscape one brilliant idea at a time. Start with our free and open source courses.",
+  "data": [
+    [
+      "Hackathon Course",
+      "https://www.youtube.com/watch?v=Ms5uAfWjj4I&list=PLaMJnpgudSAC1iiHjYHIUd5ljPc3lhqCj&pp=iAQB"
+    ],
+    [
+      "Bitcoin Lightning Crash Course",
+      "https://www.youtube.com/watch?v=V6ac2qUMbGY"
+    ],
+    ["ZBD.dev", "https://zbd.dev"]
+  ]
+}

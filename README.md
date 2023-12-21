@@ -16,7 +16,7 @@ yarn
 
 ## Environment Variables
 
-Create a ``.env.local`` just like `.env.local.example` and load up your own values. 
+Create a `.env.local` just like `.env.local.example` and load up your own values.
 
 ```
 NEXTAUTH_URL="http://localhost:3000"
