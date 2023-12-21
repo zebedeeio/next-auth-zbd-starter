@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonPrimary from "@/components/ButtonPrimary";
+import ButtonSecondary from "@/components/ButtonSecondary";
 
 const CallToAction = ({ data }) => {
   return (
@@ -23,7 +23,7 @@ const CallToAction = ({ data }) => {
           </div>
         </div>
         {/* <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
-          <ButtonPrimary buttonText={"Get ZBD"} buttonLink={""} />
+          <ButtonSecondary buttonText={"Get ZBD"} buttonLink={""} />
         </div> */}
       </div>
     </div>

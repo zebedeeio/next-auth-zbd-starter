@@ -9,6 +9,7 @@ import Sponsors from "@/components/Sponsors";
 import { Check } from "lucide-react";
 import PrizePool from "@/components/PrizePool";
 import ButtonPrimary from "@/components/ButtonPrimary";
+import ButtonSecondary from "@/components/ButtonSecondary";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
@@ -50,40 +51,46 @@ export default function HackathonDetail() {
     <Layout>
       <div className="py-4 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          {/* TODO: */}
-          {/* Refactor Back Button to use router.back() */}
-          <ButtonPrimary buttonText={"Back"} buttonLink={"/"} />
-          <PageHeader
-            headerText={"BBB Hackathon"}
-            descriptionText={
-              "Our hackathons are a playground for visionaries, developers, and Bitcoin enthusiasts to come together and push the boundaries of what's possible with Bitcoin technology. Whether you're a seasoned developer or a newcomer, our hackathons provide an open arena to collaborate, create, and build the future of fast, secure, and scalable Bitcoin applications."
-            }
-          />
-          <div className="my-4 mb-8">
-            {!signedUp ? (
-              <ButtonPrimary
-                buttonText={"Register"}
-                buttonLink={`/hackathons/${id}/register`}
-              />
-            ) : (
-              <ButtonPrimary
-                buttonText={"Submit Project"}
-                buttonLink={`/hackathons/${id}/submit`}
-              />
-            )}
+          <div className="px-6 lg:px-8 py-12 ">
+            <div className="m-auto max-w-3xl py-16">
+              <div className="text-center">
+                <h1 className="text-4xl font-bold tracking-tight sm:text-6xl bg-gradient-to-r from-blue-500 via-purple-500 to-white text-transparent bg-clip-text h-20">
+                  <div>BitBlockBoom Buildathon</div>
+                </h1>
+                <p className="my-6 text-lg leading-8 text-gray-200">
+                  Make your dreams reality. <br />
+                  Empower yourself, find teams, have fun, and grow.
+                </p>
+
+                <div className="mt-2 flex items-center justify-center gap-x-6">
+                  {!signedUp ? (
+                    <ButtonPrimary
+                      buttonText={"Register"}
+                      buttonLink={`/hackathons/${id}/register`}
+                    />
+                  ) : (
+                    <ButtonPrimary
+                      buttonText={"Submit Project"}
+                      buttonLink={`/hackathons/${id}/submit`}
+                    />
+                  )}
+                </div>
+              </div>
+            </div>
           </div>
+          <div className="my-4 mb-8"></div>
           <div className="mx-auto max-w-4xl gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none">
             <div className="lg:pr-8 lg:pt-4">
-              <p className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              <p className="text-3xl font-bold tracking-tight sm:text-4xl">
                 {bitblockboom.headerText}
               </p>
-              <p className="mt-6 text-lg leading-8 text-gray-600">
+              <p className="mt-6 text-lg leading-8 ">
                 {bitblockboom.descriptionText}
               </p>
-              <dl className="grid grid-cols-1 lg:grid-cols-3 my-10 text-base leading-7 text-gray-600 lg:max-w-none ">
+              <dl className="grid grid-cols-1 lg:grid-cols-3 my-10 text-base leading-7  lg:max-w-none ">
                 {bitblockboom.data.map((item) => (
                   <div className="relative pl-9 my-4">
-                    <dt className=" font-semibold text-gray-900">
+                    <dt className=" font-semibold">
                       <Check className="absolute left-1 top-1 h-5 w-5 text-green-400" />
                       {item[0]}
                     </dt>
@@ -119,7 +126,7 @@ export default function HackathonDetail() {
           </div>
           <div className="py-24 sm:py-32">
             <div className="max-w-7xl">
-              <h2 className="mb-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl ">
+              <h2 className="mb-2 text-3xl font-bold tracking-tight sm:text-4xl ">
                 Sponsors
               </h2>
               <div className="mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">

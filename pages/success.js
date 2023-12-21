@@ -1,6 +1,6 @@
 import Layout from "@/components/layout";
 import PageHeader from "@/components/PageHeader";
-import ButtonPrimary from "@/components/ButtonPrimary";
+import ButtonSecondary from "@/components/ButtonSecondary";
 import Image from "next/image";
 
 export default function HackathonList() {
@@ -22,7 +22,7 @@ export default function HackathonList() {
                 "You've succesfully signed-up for the hackathon."
               }
             />
-            <ButtonPrimary buttonText={"Finish"} buttonLink={"/"} />
+            <ButtonSecondary buttonText={"Finish"} buttonLink={"/"} />
           </div>
         </div>
       </div>

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import PageHeader from "@/components/PageHeader";
 import { ArrowRight } from "lucide-react";
-import ButtonPrimary from "@/components/ButtonPrimary";
+import ButtonSecondary from "@/components/ButtonSecondary";
 
 const CreateHackathonForm = () => {
   const router = useRouter();
@@ -53,7 +53,7 @@ const CreateHackathonForm = () => {
     <form onSubmit={create}>
       <div className="py-4 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <ButtonPrimary buttonText={"Back"} buttonLink={"/"} />
+          <ButtonSecondary buttonText={"Back"} buttonLink={"/"} />
           <PageHeader
             headerText={"Create a Hackathon"}
             descriptionText={"Wohooo! LFG and create a hackathon."}

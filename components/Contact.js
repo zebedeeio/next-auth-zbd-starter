@@ -9,11 +9,11 @@ function Contact() {
     email: "",
     company: "",
     comments: "",
-  })
+  });
 
   const handleChange = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value })
-  }
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,19 +23,23 @@ function Contact() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
       });
-      console.log(response)
+      console.log(response);
       router.push("/");
     } catch (error) {
       console.error(error);
     }
-  }
+  };
 
   return (
     <div className="w-full md:pl-14">
       <section className="space-y-3 flex flex-col justify-start items-start px-10">
         <div className="mb-2">
-          <h1 className="font-bold pb-3 custom-text-shadow text-4xl">Contact Us</h1>
-          <p className="text-gray-400 font-semibold  text-lg ">Interested in helping us spreading innovation? Reach out</p>
+          <h1 className="font-bold mb-3 custom-text-shadow text-4xl">
+            Contact Us
+          </h1>
+          <p className="text-gray-400 font-semibold  text-lg ">
+            Interested in helping us spreading innovation? Reach out
+          </p>
         </div>
         <form className="" onSubmit={handleSubmit}>
           <div className=" grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-6">
@@ -141,10 +145,7 @@ function Contact() {
                         <span className="mr-2 text-white text-base ">
                           Submit
                         </span>
-                        <ChevronRight
-                          color="white"
-                          className=" w-6 h-6"
-                        />
+                        <ChevronRight color="white" className=" w-6 h-6" />
                       </div>
                     </button>
                   </div>
@@ -155,7 +156,7 @@ function Contact() {
         </form>
       </section>
     </div>
-  )
+  );
 }
 
-export default Contact
+export default Contact;

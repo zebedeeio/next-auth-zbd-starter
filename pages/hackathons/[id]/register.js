@@ -1,7 +1,7 @@
 import Layout from "@/components/layout";
 import PageHeader from "@/components/PageHeader";
 import RegisterTeamForm from "@/components/RegisterTeamForm";
-import ButtonPrimary from "@/components/ButtonPrimary";
+import ButtonSecondary from "@/components/ButtonSecondary";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 
@@ -19,7 +19,7 @@ export default function HackathonRegistration() {
     <Layout>
       <div className="py-4 sm:py-12">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <ButtonPrimary buttonText={"Back"} buttonLink={"/"} />
+          <ButtonSecondary buttonText={"Back"} buttonLink={"/"} />
           <PageHeader
             headerText={"Confirm Registration for BBB Hackathon"}
             descriptionText={"Fill out the form to complete your registration."}

@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonPrimary from "@/components/ButtonPrimary";
+import ButtonSecondary from "@/components/ButtonSecondary";
 
 const HackathonCard = ({ headerText, descriptionText, buttonLink = "#" }) => {
   return (
@@ -15,7 +15,7 @@ const HackathonCard = ({ headerText, descriptionText, buttonLink = "#" }) => {
         <p className="text-gray-200 text-base">{descriptionText}</p>
       </div>
       <div className="self-end p-4">
-        <ButtonPrimary buttonText={"View"} buttonLink={buttonLink} />
+        <ButtonSecondary buttonText={"View"} buttonLink={buttonLink} />
       </div>
     </div>
   );

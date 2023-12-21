@@ -1,6 +1,4 @@
 {
-    "headerText": "Partnered with the world’s most innovative companies",
-    "data" : [
-        ["Fulgur Ventures", "/fulgur.png"]
-    ]
+  "headerText": "Partnered with the world’s most innovative companies",
+  "data": [["ZBD", "/zbd.svg"]]
 }

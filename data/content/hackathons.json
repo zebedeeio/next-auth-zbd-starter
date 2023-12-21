@@ -1,7 +1,11 @@
 {
-    "headerText": "Unleash Your Creativity.",
-    "descriptionText": "Join teams of like-minded individuals, solve real-world problems, and make a difference. The future of technology is in your hands!",
-    "data": [
-        ["BitBlockBoom", "Experience the thrill of innovation at BitBlockBoom's hackathon, where brilliant minds converge to push the boundaries of Lightning and Nostr.", ""]
+  "headerText": "Unleash Your Creativity.",
+  "descriptionText": "Join teams of like-minded individuals, solve real-world problems, and make a difference. The future of technology is in your hands!",
+  "data": [
+    [
+      "BitBlockBoom",
+      "Experience the thrill of innovation at BitBlockBoom's hackathon, where brilliant minds converge to push the boundaries of Lightning and Nostr.",
+      ""
     ]
+  ]
 }

@@ -1,21 +1,20 @@
 import Image from "next/image";
 import React from "react";
-import { ChevronRight } from 'lucide-react'
+import { ChevronRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 const Sponsors = ({ data }) => {
-
   const router = useRouter();
   const [values, setValues] = useState({
     name: " ",
     email: "",
     company: "",
-  })
+  });
 
   const handleChange = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value })
-  }
+    setValues({ ...values, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,12 +24,12 @@ const Sponsors = ({ data }) => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
       });
-      console.log(response)
+      console.log(response);
       router.push("/");
     } catch (error) {
       console.error(error);
     }
-  }
+  };
 
   return (
     // <div className="py-24 sm:py-32">
@@ -55,8 +54,12 @@ const Sponsors = ({ data }) => {
       <div className="w-full md:pl-14">
         <section className="space-y-3 flex flex-col justify-start items-start px-10">
           <div className="mb-2">
-            <h1 className="font-bold pb-3 text-4xl custom-text-shadow">Sponsors GHL</h1>
-            <p className="text-gray-400 font-semibold  text-lg ">Interested in helping us spreading innovation? Reach out</p>
+            <h1 className="font-bold mb-3 text-4xl custom-text-shadow">
+              Sponsors GHL
+            </h1>
+            <p className="text-gray-400 font-semibold  text-lg ">
+              Interested in helping us spreading innovation? Reach out
+            </p>
           </div>
           <form className="" onSubmit={handleSubmit}>
             <div className=" grid grid-cols-1 gap-x-6 gap-y-5 sm:grid-cols-6">
@@ -144,10 +147,7 @@ const Sponsors = ({ data }) => {
                           <span className="mr-2 text-white text-base ">
                             Submit
                           </span>
-                          <ChevronRight
-                            color="white"
-                            className=" w-6 h-6"
-                          />
+                          <ChevronRight color="white" className=" w-6 h-6" />
                         </div>
                       </button>
                     </div>

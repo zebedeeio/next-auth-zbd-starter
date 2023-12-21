@@ -7,7 +7,7 @@ import sponsors from "@/data/content/sponsors.json";
 import Sponsors from "@/components/Sponsors";
 import { Check } from "lucide-react";
 import PrizePool from "@/components/PrizePool";
-import ButtonPrimary from "@/components/ButtonPrimary";
+import ButtonSecondary from "@/components/ButtonSecondary";
 import Image from "next/image";
 import Hackathons from "@/components/Hackathons";
 import hackathons from "@/data/content/hackathons.json";
